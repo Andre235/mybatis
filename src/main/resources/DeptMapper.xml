@@ -6,4 +6,20 @@
     <select id="list" resultType="com.example.demo.entity.DeptEntity" >
         select * from department
     </select>
+
+    <select id="getById" parameterType="Integer" resultType="com.example.demo.entity.DeptEntity">
+        select * from department where id = #{id}
+    </select>
+
+    <update id="update" parameterType="com.example.demo.entity.DeptEntity">
+        update department
+    </update>
+
+    <insert id="addDept" parameterType="com.example.demo.entity.DeptEntity">
+        insert into department (id,name) values (#{id}, #{name})
+    </insert>
+
+    <delete id="deleteById" parameterType="Integer">
+        delete from department where id = #{id}
+    </delete>
 </mapper>

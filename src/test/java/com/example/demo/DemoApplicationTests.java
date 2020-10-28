@@ -18,11 +18,49 @@ class DemoApplicationTests {
     }
 
     @Test
-    public void test1(){
+    public void getAllTest(){
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         DeptDao mapper = sqlSession.getMapper(DeptDao.class);
         List<DeptEntity> list = mapper.list();
         list.forEach(System.out::println);
         sqlSession.close();
     }
+
+    @Test
+    public void getByIdTest(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        DeptDao deptDao = sqlSession.getMapper(DeptDao.class);
+        DeptEntity entity = deptDao.getById(1);
+        System.out.println(entity);
+        sqlSession.close();
+    }
+
+    @Test
+    public void addDeptTest(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        DeptDao mapper = sqlSession.getMapper(DeptDao.class);
+        List<DeptEntity> list = mapper.list();
+        list.forEach(System.out::println);
+        sqlSession.close();
+    }
+
+    @Test
+    public void updateTest(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        DeptDao mapper = sqlSession.getMapper(DeptDao.class);
+        List<DeptEntity> list = mapper.list();
+        list.forEach(System.out::println);
+        sqlSession.close();
+    }
+
+    @Test
+    public void deleteByIdTest(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        DeptDao mapper = sqlSession.getMapper(DeptDao.class);
+        List<DeptEntity> list = mapper.list();
+        list.forEach(System.out::println);
+        sqlSession.close();
+    }
+
+
 }
