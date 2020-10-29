@@ -11,6 +11,10 @@
         select * from department where id = #{id}
     </select>
 
+    <select id="getListByDeptNameLike" parameterType = "map" resultType="com.example.demo.entity.DeptEntity">
+        select * from department where name like #{name}
+    </select>
+
     <update id="update" parameterType="com.example.demo.entity.DeptEntity">
         update department
     </update>
@@ -22,4 +26,8 @@
     <delete id="deleteById" parameterType="Integer">
         delete from department where id = #{id}
     </delete>
+
+    <insert id="createDeptByMap" parameterType="map">
+        insert into department (id,name) values (#{key}, #{deptName})
+    </insert>
 </mapper>
