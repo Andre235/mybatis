@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 import lombok.Data;
+import org.apache.ibatis.type.Alias;
 
 /**
  * @Author: geek
@@ -8,6 +9,7 @@ import lombok.Data;
  * @Description:
  */
 @Data
+@Alias("dept")
 public class DeptEntity {
     private Integer id;
     private String name;

@@ -4,6 +4,10 @@
 
 <configuration>
     <properties resource="db.properties"/>
+    <typeAliases>
+        <package name="com.example.demo.entity"/>
+    </typeAliases>
+
     <!--环境配置，连接的数据库，这里使用的是MySQL-->
     <environments default="mysql">
         <environment id="mysql">
