@@ -4,10 +4,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.dao.StudentDao">
 
+    <!--方式1：先查询所有的学生信息，在根据查询出来的tid嵌套查询教师信息-->
     <select id="findAll" resultMap="StudentTeacher">
         select * from student
     </select>
-
     <resultMap id="StudentTeacher" type="StudentEntity">
         <result property="id" column="id"/>
         <result property="name" column="name"/>
@@ -15,8 +15,25 @@
         <association property="teacher" column="tid" javaType="TeacherEntity" select="getTeacher"/>
         <!--<result property="teacher" column="tid"/>-->
     </resultMap>
-
     <select id="getTeacher" resultType="TeacherEntity">
         select * from teacher where id = #{tid}
     </select>
+
+    <!--方式2：按照结果嵌套处理-->
+    <select id="findAll2" resultMap="studentTeacher2">
+        select
+            s.id sid,s.name sname,t.name tname,t.id tid
+        from
+            student s,teacher t
+        where
+            s.tid = t.id
+    </select>
+    <resultMap id="studentTeacher2" type="StudentEntity">
+        <result property="id" column="sid"/>
+        <result property="name" column="sname"/>
+        <association property="teacher" javaType="TeacherEntity">
+            <result property="name" column="tname"/>
+            <result property="id" column="tid"/>
+        </association>
+    </resultMap>
 </mapper>

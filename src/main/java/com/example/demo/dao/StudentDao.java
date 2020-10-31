@@ -14,4 +14,6 @@ import java.util.List;
 public interface StudentDao {
 
     List<StudentEntity> findAll();
+
+    List<StudentEntity> findAll2();
 }

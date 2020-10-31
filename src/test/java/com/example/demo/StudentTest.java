@@ -35,8 +35,14 @@ public class StudentTest {
     }
 
     @Test
-    public void findByIdTest(){
+    public void findAllTest(){
         List<StudentEntity> studentList = studentDao.findAll();
+        studentList.forEach(System.out::println);
+    }
+
+    @Test
+    public void findAllTest2(){
+        List<StudentEntity> studentList = studentDao.findAll2();
         studentList.forEach(System.out::println);
     }
 }
