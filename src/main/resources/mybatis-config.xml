@@ -4,6 +4,12 @@
 
 <configuration>
     <properties resource="db.properties"/>
+
+    <!--日志文件配置-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
     <typeAliases>
         <package name="com.example.demo.entity"/>
     </typeAliases>

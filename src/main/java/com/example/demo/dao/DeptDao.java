@@ -1,6 +1,7 @@
 package com.example.demo.dao;
 
 import com.example.demo.entity.DeptEntity;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 import java.util.Map;
@@ -16,6 +17,9 @@ public interface DeptDao {
      * @return 查找所有的部门
      */
     List<DeptEntity> list();
+
+    @Select("select * from department where name LIKE '%${name}%'")
+    List<DeptEntity> findAllByAnnotation(String name);
 
     /**
      * @param id 部门id

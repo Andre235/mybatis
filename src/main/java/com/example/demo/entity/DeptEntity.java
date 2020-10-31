@@ -11,5 +11,5 @@ import org.apache.ibatis.type.Alias;
 @Data
 public class DeptEntity {
     private Integer id;
-    private String deptName;
+    private String name;
 }

@@ -31,6 +31,12 @@ class DemoApplicationTests {
     }
 
     @Test
+    public void findAllByAnnotationTest(){
+        List<DeptEntity> list = mapper.findAllByAnnotation("部");
+        list.forEach(System.out::println);
+    }
+
+    @Test
     public void getAllTest(){
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         DeptDao mapper = sqlSession.getMapper(DeptDao.class);

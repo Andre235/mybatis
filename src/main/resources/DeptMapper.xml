@@ -10,7 +10,7 @@
         <result column="name" property="deptName"></result>
     </resultMap>
 
-    <select id="list" resultType="DeptEntity" resultMap="deptMap">
+    <select id="list" resultType="DeptEntity" resultMap="deptMap" useCache="true">
         select * from department
     </select>
 
