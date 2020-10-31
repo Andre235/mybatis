@@ -9,8 +9,7 @@ import org.apache.ibatis.type.Alias;
  * @Description:
  */
 @Data
-@Alias("dept")
 public class DeptEntity {
     private Integer id;
-    private String name;
+    private String deptName;
 }
