@@ -2,6 +2,7 @@ package com.example.demo.entity;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -10,7 +11,8 @@ import java.util.List;
  * @Description:
  */
 @Data
-public class Teacher {
+public class Teacher implements Serializable {
+    private static final long serialVersionUID = 1L;
     private Integer id;
     private String name;
     private List<Student> studentList;

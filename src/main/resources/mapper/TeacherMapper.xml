@@ -3,8 +3,14 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.dao.TeacherDao">
+    <cache
+        eviction="FIFO"
+        flushInterval="60000"
+        size="512"
+        readOnly="true"
+    />
 
-    <select id="findTeacherById" resultMap="TeacherStudent">
+    <select id="findTeacherById" resultMap="TeacherStudent" flushCache="false" useCache="true">
         select
             s.id sid,s.name sname,t.name tname,t.id tid
         from
